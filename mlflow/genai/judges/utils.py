@@ -191,6 +191,13 @@ def _record_judge_model_usage_success_databricks_telemetry(
     num_prompt_tokens: int | None,
     num_completion_tokens: int | None,
 ) -> None:
+    print("RECORD_SUCCESS called")
+    print(f"request_id: {request_id}")
+    print(f"model_provider: {model_provider}")
+    print(f"endpoint_name: {endpoint_name}")
+    print(f"num_prompt_tokens: {num_prompt_tokens}")
+    print(f"num_completion_tokens: {num_completion_tokens}")
+
     try:
         from databricks.agents.telemetry import record_judge_model_usage_success
     except ImportError:
@@ -223,6 +230,12 @@ def _record_judge_model_usage_failure_databricks_telemetry(
     error_code: str,
     error_message: str,
 ) -> None:
+    print("RECORD_FAILURE called")
+    print(f"model_provider: {model_provider}")
+    print(f"endpoint_name: {endpoint_name}")
+    print(f"error_code: {error_code}")
+    print(f"error_message: {error_message}")
+
     try:
         from databricks.agents.telemetry import record_judge_model_usage_failure
     except ImportError:
