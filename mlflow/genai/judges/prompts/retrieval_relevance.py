@@ -1,10 +1,10 @@
 from mlflow.genai.prompts.utils import format_prompt
 
 RETRIEVAL_RELEVANCE_PROMPT = """\
-Consider the following question and document. You must determine whether the document provides information that is (fully or partially) relevant to the question. Do not focus on the correctness or completeness of the document. Do not make assumptions, approximations, or bring in external knowledge.
+Consider the following question and document. You must determine whether the document provides any information that is relevant to the question. The document is relevant if it answers at least one component of the question. Do not focus on the correctness or completeness of the document. Do not make assumptions, approximations, or bring in external knowledge.
 
 <question>{{input}}</question>
-<document>{{doc}}</document>
+<document>{{retrieval_context}}</document>
 
 Please indicate whether the document contains information that is relevant to the question using only the following json format. Do not use any markdown formatting or output additional lines.
 {
